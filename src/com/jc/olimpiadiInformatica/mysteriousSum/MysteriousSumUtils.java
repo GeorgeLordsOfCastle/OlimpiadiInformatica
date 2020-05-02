@@ -10,7 +10,7 @@ public class MysteriousSumUtils {
                         .filter(decode -> decode.getLetter() == charI)
                         .findFirst()
                         .map(decode -> Integer.toString(decode.getDigit()))
-                        .orElseThrow())
+                        .orElseThrow(() -> new RuntimeException("Decode doesn't produce a number.")))
                 .collect(Collectors.joining()));
     }
 }
