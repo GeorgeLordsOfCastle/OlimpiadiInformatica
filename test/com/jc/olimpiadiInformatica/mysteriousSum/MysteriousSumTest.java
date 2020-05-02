@@ -45,18 +45,8 @@ public class MysteriousSumTest {
     }
 
     private static void check(List<Decode> decodeList, String addend1, String addend2, int sum) {
-        int intAddend1 = convert(addend1, decodeList);
-        int intAddend2 = convert(addend2, decodeList);
+        int intAddend1 = MysteriousSumUtils.convert(addend1, decodeList);
+        int intAddend2 = MysteriousSumUtils.convert(addend2, decodeList);
         Assert.assertThat(intAddend1 + intAddend2, Is.is(sum));
-    }
-
-    private static int convert(String addend, List<Decode> decodeList) {
-        return Integer.parseInt(addend.chars().mapToObj(i->(char)i)
-                .map(charI -> decodeList.stream()
-                        .filter(decode -> decode.getLetter() == charI)
-                        .findFirst()
-                        .map(decode -> Integer.toString(decode.getDigit()))
-                        .orElseThrow())
-                .collect(Collectors.joining()));
     }
 }
