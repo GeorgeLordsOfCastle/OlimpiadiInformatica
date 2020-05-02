@@ -1,8 +1,5 @@
 package com.jc.olimpiadiInformatica.mysteriousSum;
 
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-
 class MysteriousSumTestConfiguration {
     private final String configName;
     private final MysteriousSum mysteriousSum;
